@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --color-text-tertiary: #F9FAFC;
+  --color-text\/tertiary: #F9FAFC;
+}
+
