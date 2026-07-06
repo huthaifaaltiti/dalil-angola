@@ -17,11 +17,11 @@
 
 	<main class="flex-1 min-w-0 flex flex-col min-h-screen overflow-x-hidden">
 		<!-- Breadcrumb bar -->
-		<div class="w-full bg-primary px-6 border-b border-slate-100 flex items-center justify-between h-14">
+		<div class="w-full bg-primary px-4 sm:px-6 border-b border-slate-100 flex items-center justify-between h-14">
 			<Breadcrumb />
 
 			<!-- Right-side header controls (Search, Help, Notifications, User) -->
-			<div class="flex items-center gap-4 text-[#8C8FA5]">
+			<div class="flex items-center gap-3 sm:gap-4 text-[#8C8FA5]">
 				<!-- Search -->
 				<button type="button" class="hover:text-slate-800 transition cursor-pointer">
 					<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">

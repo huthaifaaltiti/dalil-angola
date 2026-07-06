@@ -55,7 +55,7 @@
 		<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5">
 			<path d="M8.75 3.5L5.25 7L8.75 10.5" stroke="currentColor" stroke-width="1.58333" stroke-linecap="round" stroke-linejoin="round"/>
 		</svg>
-		Back to {parentCrumb.label}
+		Back
 	</a>
 {/if}
 
