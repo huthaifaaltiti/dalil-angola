@@ -6,12 +6,26 @@
 	import { resolve } from '$app/paths';
 
 	let collapsed = $state(false);
+	let innerWidth = $state(1024);
+	let wasSmall = $state(false);
 
 	let expandedSections = $state<Record<string, boolean>>({
 		dashboard: false,
 		transactions: false,
 		control_room: false,
 		workloads: false
+	});
+
+	$effect(() => {
+		const isSmall = innerWidth < 1024;
+		if (isSmall && !wasSmall) {
+			collapsed = true;
+			
+			for (const key in expandedSections) {
+				expandedSections[key] = false;
+			}
+		}
+		wasSmall = isSmall;
 	});
 
 	function toggleSection(sectionId: string, href: string, hasItems: boolean) {
@@ -34,13 +48,15 @@
 	}
 </script>
 
+<svelte:window bind:innerWidth />
+
 <aside
 	class="bg-white border-r border-slate-200/80 text-slate-700 flex flex-col min-h-screen sticky top-0 font-sans transition-all duration-300 overflow-hidden {collapsed
-		? 'w-16'
+		? 'w-20'
 		: 'w-64'}"
 >
 	<!-- Logo Area -->
-	<div class="h-16 flex items-center border-slate-100 gap-3 bg-slate-50/30 px-3 flex-shrink-0">
+	<div class="h-16 flex items-center border-slate-100 bg-slate-50/30 flex-shrink-0 {collapsed ? 'px-2 justify-between gap-1' : 'px-3 gap-3'}">
 		<!-- Logo icon -->
 		<div
 			class="w-8 h-8 flex-shrink-0 rounded-lg bg-gradient-to-tr from-amber-500 to-rose-500 flex items-center justify-center shadow-md shadow-amber-500/10"
@@ -85,7 +101,7 @@
 
 	<!-- Navigation Groups & Sections -->
 	<nav class="flex-1 overflow-y-auto py-6 space-y-6 {collapsed ? 'px-2' : 'px-4'}">
-		{#each navigationData as group}
+		{#each navigationData as group (group.label)}
 			<div class="space-y-2">
 				<!-- Group Header Label (hidden when collapsed) -->
 				{#if group.label && !collapsed}
@@ -98,7 +114,7 @@
 				{/if}
 
 				<div class="space-y-1">
-					{#each group.sections as section}
+					{#each group.sections as section (section.id)}
 						<div class="space-y-1">
 							<!-- Section Header -->
 							<button
@@ -153,7 +169,7 @@
 									transition:slide={{ duration: 200 }}
 									class="pl-3 py-2 space-y-0.5 border-l-2 border-slate-100 ml-5"
 								>
-									{#each section.items as item}
+									{#each section.items as item (item.href)}
 										{@const isActive =
 											$page.url.pathname === item.href || $page.url.hash === item.href}
 										<a
