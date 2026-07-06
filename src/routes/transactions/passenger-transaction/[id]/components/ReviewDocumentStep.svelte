@@ -27,7 +27,7 @@
 <div class="flex-grow flex flex-col justify-between">
 	<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-[#383D63]">
 		<!-- Document Information Card -->
-		<div class="bg-white border border-[#E6E7EC]/80 rounded-2xl p-6 shadow-sm flex flex-col">
+		<div class="bg-primary border border-[#E6E7EC]/80 rounded-2xl p-6 shadow-sm flex flex-col">
 			<div class="flex items-center gap-3 mb-6">
 				<div
 					class="w-10 h-10 rounded-xl bg-[#EFF6FF] text-[#2563EB] flex items-center justify-center [&>svg]:w-5 [&>svg]:h-5 shrink-0"
@@ -81,7 +81,7 @@
 
 		<!-- Personal Information Card -->
 		<div
-			class="bg-white border border-[#E6E7EC]/80 rounded-2xl p-6 shadow-sm flex flex-col justify-between"
+			class="bg-primary border border-[#E6E7EC]/80 rounded-2xl p-6 shadow-sm flex flex-col justify-between"
 		>
 			<div>
 				<div class="flex items-center gap-3 mb-6">
@@ -132,7 +132,7 @@
 						<span class="text-xs text-[#8C8FA5] mt-2 mb-3">Upload Passport Image (optional)</span>
 						<button
 							type="button"
-							class="bg-white border border-[#E6E7EC] hover:bg-slate-50 text-slate-700 text-xs font-semibold px-4 py-2 rounded-xl shadow-sm transition flex items-center gap-2 cursor-pointer"
+							class="bg-primary border border-[#E6E7EC] hover:bg-slate-50 text-slate-700 text-xs font-semibold px-4 py-2 rounded-xl shadow-sm transition flex items-center gap-2 cursor-pointer"
 						>
 							<div class="text-slate-500 [&>svg]:w-3.5 [&>svg]:h-3.5">
 								{@html uploadIcon}

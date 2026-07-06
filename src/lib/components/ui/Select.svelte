@@ -21,7 +21,7 @@
 	{/if}
 	<select
 		bind:value
-		class="w-full bg-[#F9FAFC] border border-[#E6E7EC] text-sm text-[#030519] rounded-xl py-3 focus:outline-none focus:border-[#2563EB]/40 focus:ring-1 focus:ring-[#2563EB]/40 transition duration-150 appearance-none cursor-pointer pr-10
+		class="w-full bg-secondary border border-[#E6E7EC] text-sm text-[#030519] rounded-xl py-3 focus:outline-none focus:border-[#2563EB]/40 focus:ring-1 focus:ring-[#2563EB]/40 transition duration-150 appearance-none cursor-pointer pr-10
 		{icon ? 'pl-10' : 'px-4'} {className}"
 		{...rest}
 	>

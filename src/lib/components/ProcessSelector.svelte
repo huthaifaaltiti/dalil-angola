@@ -51,7 +51,7 @@
 	);
 </script>
 
-<div class="w-full bg-white border border-[#E6E7EC] rounded-2xl p-6 shadow-sm">
+<div class="w-full bg-primary border border-[#E6E7EC] rounded-2xl p-6 shadow-sm">
 	<!-- Top Section -->
 	<div class="flex items-center justify-between mb-6 flex-wrap gap-4">
 		<div class="flex items-center gap-4">
@@ -80,7 +80,7 @@
 			<div class="relative min-w-[200px]">
 				<select
 					bind:value={selectedDropdown}
-					class="w-full bg-[#F9FAFC] border border-[#E6E7EC] rounded-lg px-4 py-2.5 text-sm text-[#383D63] font-medium appearance-none focus:outline-none focus:ring-2 {theme.focusRing} cursor-pointer"
+					class="w-full bg-secondary border border-[#E6E7EC] rounded-lg px-4 py-2.5 text-sm text-[#383D63] font-medium appearance-none focus:outline-none focus:ring-2 {theme.focusRing} cursor-pointer"
 				>
 					{#each dropdownOptions as opt}
 						<option value={opt}>{opt}</option>
@@ -103,14 +103,14 @@
 					selectedOption = option.title;
 					if (onselect) onselect(option.title);
 				}}
-				class="flex-1 flex flex-col items-center justify-center py-8 px-6 bg-[#F6F6F9] hover:bg-[#EEF1F6] border rounded-2xl transition-all duration-200 cursor-pointer text-center group {selectedOption ===
+				class="flex-1 flex flex-col items-center justify-center py-8 px-6 bg-secondary hover:bg-[#EEF1F6] border rounded-2xl transition-all duration-200 cursor-pointer text-center group {selectedOption ===
 				option.title
 					? `${theme.borderActive} ring-1`
 					: 'border-[#E6E7EC]'}"
 			>
 				<!-- White circle container for icon -->
 				<div
-					class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm mb-3 group-hover:scale-105 transition-transform duration-200"
+					class="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-sm mb-3 group-hover:scale-105 transition-transform duration-200"
 				>
 					{#if option.icon}
 						{#if typeof option.icon === 'string'}

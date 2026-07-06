@@ -51,7 +51,7 @@
 <svelte:window bind:innerWidth />
 
 <aside
-	class="bg-white border-r border-slate-200/80 text-slate-700 flex flex-col min-h-screen sticky top-0 font-sans transition-all duration-300 overflow-hidden {collapsed
+	class="bg-primary border-r border-slate-200/80 text-slate-700 flex flex-col min-h-screen sticky top-0 font-sans transition-all duration-300 overflow-hidden {collapsed
 		? 'w-20'
 		: 'w-64'}"
 >

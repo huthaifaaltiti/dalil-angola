@@ -17,7 +17,7 @@
 		<button
 			type="button"
 			onclick={onClear}
-			class="bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-semibold px-4 py-2.5 rounded-md text-xs transition shadow-sm flex items-center gap-2 cursor-pointer focus:outline-none"
+			class="bg-primary hover:bg-slate-50 border border-slate-200 text-slate-700 font-semibold px-4 py-2.5 rounded-md text-xs transition shadow-sm flex items-center gap-2 cursor-pointer focus:outline-none"
 		>
 			<div class="text-slate-400 [&>svg]:w-3.5 [&>svg]:h-3.5">
 				{@html closeIcon}

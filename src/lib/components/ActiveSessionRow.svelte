@@ -87,7 +87,7 @@
 
 <tr 
 	onclick={handleRowClick}
-	class="border-b border-[#E6E7EC]/70 hover:bg-[#F9FAFC]/75 transition-colors duration-150 cursor-pointer"
+	class="border-b border-[#E6E7EC]/70 hover:bg-secondary/75 transition-colors duration-150 cursor-pointer"
 >
 	<!-- Transaction # -->
 	<td class="py-3 px-6 text-sm text-[#8C8FA5] font-mono whitespace-nowrap">
@@ -146,7 +146,7 @@
 					e.stopPropagation();
 					onterminate?.(session);
 				}}
-				class="btn-terminate bg-white hover:bg-[#EFF6FF] active:bg-[#DBEAFE] border border-[#2563EB] text-[#2563EB] text-xs font-semibold py-1.5 px-4 rounded-lg transition duration-150 cursor-pointer"
+				class="btn-terminate bg-primary hover:bg-[#EFF6FF] active:bg-[#DBEAFE] border border-[#2563EB] text-[#2563EB] text-xs font-semibold py-1.5 px-4 rounded-lg transition duration-150 cursor-pointer"
 			>
 				Terminate
 			</button>

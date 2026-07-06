@@ -2,8 +2,15 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
+:root {
+  --color-primary: #FFFFFF;
+  --color-secondary: #F6F6F9;
+}
+
 @theme {
-  --color-text-tertiary: #F9FAFC;
-  --color-text\/tertiary: #F9FAFC;
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-text-tertiary: var(--color-secondary);
+  --color-text\/tertiary: var(--color-secondary);
 }
 

@@ -17,7 +17,7 @@
 
 	<main class="flex-1 min-w-0 flex flex-col min-h-screen overflow-x-hidden">
 		<!-- Breadcrumb bar -->
-		<div class="w-full bg-white px-6 border-b border-slate-100 flex items-center justify-between h-14">
+		<div class="w-full bg-primary px-6 border-b border-slate-100 flex items-center justify-between h-14">
 			<Breadcrumb />
 
 			<!-- Right-side header controls (Search, Help, Notifications, User) -->

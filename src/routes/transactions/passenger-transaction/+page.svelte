@@ -138,7 +138,7 @@
 </script>
 
 <div class="p-6">
-	<div class="py-3 px-4 flex gap-4 flex-wrap bg-white rounded-md items-center shadow-sm border border-[#E6E7EC]">
+	<div class="py-3 px-4 flex gap-4 flex-wrap bg-primary rounded-md items-center shadow-sm border border-[#E6E7EC]">
 		{#each details as detail, i (detail.label)}
 			<DetailField label={detail.label} value={detail.value} icon={detail.icon} border={i !== 0} />
 		{/each}
@@ -167,7 +167,7 @@
 	</div>
 
 	<!-- Active Sessions -->
-	<div class="mt-8 bg-white border border-[#E6E7EC] rounded-2xl p-6 shadow-sm">
+	<div class="mt-8 bg-primary border border-[#E6E7EC] rounded-2xl p-6 shadow-sm">
 		<div class="flex items-center justify-between mb-6 flex-wrap gap-4">
 			<div>
 				<h2 class="text-xl font-bold text-[#030519] tracking-wide leading-tight">Active Sessions</h2>

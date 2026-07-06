@@ -16,7 +16,7 @@
 		<p class="text-sm text-[#8C8FA5]">Place the passport on the scanner to begin</p>
 	</div>
 
-	<div class="flex items-center p-1 bg-white border border-[#E6E7EC] rounded-xl">
+	<div class="flex items-center p-1 bg-primary border border-[#E6E7EC] rounded-xl">
 		<button
 			type="button"
 			onclick={() => (currentStep = 2)}
@@ -42,7 +42,7 @@
 	class="flex-grow flex flex-col items-center justify-center border-2 border-dashed border-slate-200 bg-slate-50/50 rounded-2xl p-12 text-center relative overflow-hidden"
 >
 	<div
-		class="w-16 h-16 bg-white rounded-2xl border border-slate-200 flex items-center justify-center text-slate-400 shadow-sm [&>svg]:w-8 [&>svg]:h-8"
+		class="w-16 h-16 bg-primary rounded-2xl border border-slate-200 flex items-center justify-center text-slate-400 shadow-sm [&>svg]:w-8 [&>svg]:h-8"
 	>
 		{@html cameraIcon}
 	</div>
