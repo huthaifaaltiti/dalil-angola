@@ -27,14 +27,14 @@
 	let decisionRecorded = $state<'Approve' | 'Reject' | 'Escalate' | null>(null);
 
 	let formData = $state({
-		docNumber: 'LTU987654321',
-		issuingCountry: 'Lithuania',
-		nationality: 'Lithuania',
-		expiryDate: '2031-12-12',
-		firstName: 'B.',
-		lastName: 'Jonaityte',
-		gender: 'Female',
-		dob: '1992-08-15'
+		docNumber: '',
+		issuingCountry: '',
+		nationality: '',
+		expiryDate: '',
+		firstName: '',
+		lastName: '',
+		gender: '',
+		dob: ''
 	});
 
 	const steps = [
@@ -50,9 +50,9 @@
 <div class="p-6">
 	<!-- Top Transaction Card Header -->
 	<div
-		class="bg-white border border-[#E6E7EC] rounded-2xl p-6 shadow-sm flex items-center justify-between flex-wrap gap-6 mb-6"
+		class="bg-white border border-[#E6E7EC] rounded-2xl p-6 shadow-sm flex flex-col items-start sm:flex-row sm:items-center justify-between gap-6 mb-6"
 	>
-		<div class="flex items-center gap-4 text-[#383D63]">
+		<div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 text-[#383D63]">
 			<!-- Monitor Icon -->
 			<div
 				class="w-12 h-12 bg-[#EFF6FF] text-[#2563EB] rounded-xl flex items-center justify-center flex-shrink-0 [&>svg]:w-6 [&>svg]:h-6"
@@ -61,7 +61,7 @@
 			</div>
 
 			<!-- Details -->
-			<div class="flex items-center gap-6 flex-wrap">
+			<div class="flex flex-wrap items-center gap-x-6 gap-y-4">
 				<div>
 					<span class="text-xs font-semibold text-[#8C8FA5] uppercase tracking-wider block"
 						>Transaction Type</span
@@ -78,7 +78,7 @@
 					</div>
 				</div>
 
-				<div class="h-8 w-px bg-slate-200"></div>
+				<div class="hidden sm:block h-8 w-px bg-slate-200"></div>
 
 				<div>
 					<span class="text-xs font-semibold text-[#8C8FA5] uppercase tracking-wider block"
@@ -87,7 +87,7 @@
 					<span class="text-sm font-bold text-[#030519] block mt-1 font-mono">{txnId}</span>
 				</div>
 
-				<div class="h-8 w-px bg-slate-200"></div>
+				<div class="hidden sm:block h-8 w-px bg-slate-200"></div>
 
 				<div>
 					<span class="text-xs font-semibold text-[#8C8FA5] uppercase tracking-wider block"
@@ -100,7 +100,7 @@
 					</span>
 				</div>
 
-				<div class="h-8 w-px bg-slate-200"></div>
+				<div class="hidden sm:block h-8 w-px bg-slate-200"></div>
 
 				<div>
 					<span class="text-xs font-semibold text-[#8C8FA5] uppercase tracking-wider block"
@@ -128,8 +128,8 @@
 
 	<!-- Workflow Stepper Container -->
 	<div class="bg-white border border-[#E6E7EC] rounded-2xl p-6 shadow-sm mb-6 relative">
-		<!-- Connecting line behind steps -->
-		<div class="absolute top-[44px] left-0 right-0 h-0.5 -z-0">
+		<!-- Connecting line behind steps (desktop only) -->
+		<div class="hidden md:block absolute top-[44px] left-0 right-0 h-0.5 -z-0">
 			<!-- Segment 1 (Step 1 to 2) -->
 			<div
 				class="absolute left-[8.33%] w-[16.67%] h-full transition-colors duration-300 {currentStep >
@@ -165,54 +165,65 @@
 			></div>
 		</div>
 
-		<div class="grid grid-cols-6 relative z-10">
+		<div class="flex flex-col md:grid md:grid-cols-6 relative z-10 gap-6 md:gap-0">
 			{#each steps as step (step.id)}
 				<button
 					type="button"
 					onclick={() => !decisionRecorded && (currentStep = step.id)}
-					class="flex flex-col items-center text-center group cursor-pointer focus:outline-none"
+					class="flex flex-row md:flex-col items-center md:items-center text-left md:text-center group cursor-pointer focus:outline-none w-full"
 					disabled={!!decisionRecorded}
 				>
-					<!-- Circle Icon -->
-					<div
-						class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 border-2 [&>svg]:w-5 [&>svg]:h-5
-						{currentStep === step.id
-							? 'bg-[#0B1E51] border-[#0B1E51] text-white ring-[6px] ring-[#0B1E51]/15 scale-110'
-							: currentStep > step.id
-								? 'bg-[#4F46E5] border-[#4F46E5] text-white'
-								: 'bg-white border-slate-200 text-slate-400 group-hover:border-slate-300'}"
-					>
-						{#if currentStep > step.id}
-							{@html checkIcon}
-						{:else if step.id === 1}
-							{@html scannerIcon}
-						{:else if step.id === 2}
-							{@html documentIcon}
-						{:else if step.id === 3}
-							{@html smileyIcon}
-						{:else if step.id === 4}
-							{@html fingerprintIcon}
-						{:else if step.id === 5}
-							{@html similarityIcon}
-						{:else}
-							{@html decisionIcon}
+					<!-- Circle Icon Container -->
+					<div class="relative flex flex-col items-center flex-shrink-0">
+						<!-- Circle Icon -->
+						<div
+							class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 border-2 [&>svg]:w-5 [&>svg]:h-5
+							{currentStep === step.id
+								? 'bg-[#0B1E51] border-[#0B1E51] text-white ring-[6px] ring-[#0B1E51]/15 scale-110'
+								: currentStep > step.id
+									? 'bg-[#4F46E5] border-[#4F46E5] text-white'
+									: 'bg-white border-slate-200 text-slate-400 group-hover:border-slate-300'}"
+						>
+							{#if currentStep > step.id}
+								{@html checkIcon}
+							{:else if step.id === 1}
+								{@html scannerIcon}
+							{:else if step.id === 2}
+								{@html documentIcon}
+							{:else if step.id === 3}
+								{@html smileyIcon}
+							{:else if step.id === 4}
+								{@html fingerprintIcon}
+							{:else if step.id === 5}
+								{@html similarityIcon}
+							{:else}
+								{@html decisionIcon}
+							{/if}
+						</div>
+						<!-- Vertical line for mobile -->
+						{#if step.id < 6}
+							<div
+								class="block md:hidden absolute top-10 left-1/2 -translate-x-1/2 w-0.5 h-6 transition-colors duration-300 {currentStep > step.id ? 'bg-[#4F46E5]' : 'bg-slate-100'}"
+							></div>
 						{/if}
 					</div>
 
 					<!-- Details -->
-					<span class="text-[10px] font-bold text-[#8C8FA5] uppercase tracking-wider mt-2.5"
-						>{step.label}</span
-					>
-					<span
-						class="text-xs font-bold mt-1 max-w-[120px] transition-colors
-						{currentStep === step.id
-							? 'text-[#030519]'
-							: currentStep > step.id
+					<div class="flex flex-col items-start md:items-center text-left md:text-center mt-0 md:mt-2.5 ml-4 md:ml-0">
+						<span class="text-[10px] font-bold text-[#8C8FA5] uppercase tracking-wider"
+							>{step.label}</span
+						>
+						<span
+							class="text-xs font-bold mt-1 max-w-[120px] transition-colors
+							{currentStep === step.id
 								? 'text-[#030519]'
-								: 'text-[#8C8FA5]'}"
-					>
-						{step.name}
-					</span>
+								: currentStep > step.id
+									? 'text-[#030519]'
+									: 'text-[#8C8FA5]'}"
+						>
+							{step.name}
+						</span>
+					</div>
 				</button>
 			{/each}
 		</div>
@@ -276,19 +287,19 @@
 		{/if}
 
 		<ManualEntryFooter
-				bind:currentStep
-				onClear={() => {
-					formData = {
-						docNumber: '',
-						issuingCountry: '',
-						nationality: '',
-						expiryDate: '',
-						firstName: '',
-						lastName: '',
-						gender: '',
-						dob: ''
-					};
-				}}
-			/>
+			bind:currentStep
+			onClear={() => {
+				formData = {
+					docNumber: '',
+					issuingCountry: '',
+					nationality: '',
+					expiryDate: '',
+					firstName: '',
+					lastName: '',
+					gender: '',
+					dob: ''
+				};
+			}}
+		/>
 	</div>
 </div>
