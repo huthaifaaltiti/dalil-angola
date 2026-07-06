@@ -35,9 +35,31 @@
 
 		return segments;
 	});
+
+	// Derive the parent crumb for the mobile Back button
+	let parentCrumb = $derived.by(() => {
+		if (crumbs.length >= 2) {
+			return crumbs[crumbs.length - 2];
+		} else if (crumbs.length === 1) {
+			return { label: 'Home', href: '/' };
+		}
+		return null;
+	});
 </script>
 
-<nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm">
+{#if parentCrumb}
+	<a
+		href={parentCrumb.href}
+		class="inline-flex sm:hidden items-center gap-1.5 text-xs text-[#8C8FA5] hover:text-[#033069] transition-colors font-medium"
+	>
+		<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5">
+			<path d="M8.75 3.5L5.25 7L8.75 10.5" stroke="currentColor" stroke-width="1.58333" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+		Back to {parentCrumb.label}
+	</a>
+{/if}
+
+<nav aria-label="Breadcrumb" class="hidden sm:flex items-center gap-2 text-sm">
 	<!-- Home icon -->
 	<a href="/" class="flex items-center text-[#8C8FA5] hover:text-[#033069] transition-colors">
 		{@html homeIcon}
